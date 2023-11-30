@@ -3,10 +3,10 @@ import { Text, View, StyleSheet } from "react-native";
 function Card({ id, name, description }) {
   return (
     <View style={styles.card}>
-      <Text style={styles.text}>
+      <Text style={styles.h2}>
         {id}: {name}
       </Text>
-      <Text style={styles.text}>{description}</Text>
+      <Text style={styles.paragraph}>{description}</Text>
     </View>
   );
 }
@@ -21,7 +21,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     padding: 10,
   },
-  text: {
+  h2: {
     color: "white",
+    fontFamily: "russo-one",
+    fontSize: 20,    
+  },
+  paragraph: {
+    color: "white",
+    fontFamily: "neucha-regular",
+    fontSize: 18,
   },
 });

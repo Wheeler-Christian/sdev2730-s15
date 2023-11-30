@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, FlatList } from "react-native";
-// import { useFonts } from "expo-font";
-
-// import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 import Card from "./components/Card";
 
@@ -48,19 +47,14 @@ function courseSeparator() {
 }
 
 export default function App() {
-  // const [fontsLoaded] = useFonts({
-  //   "Dancing-Script": require("./assets/fonts/static/DancingScript-Regular.ttf"),
-  // });
+  const [fontsLoaded] = useFonts({
+    "neucha-regular": require("./assets/fonts/Neucha-Regular.ttf"),
+    "russo-one": require("./assets/fonts/RussoOne-Regular.ttf"),
+  });
 
-  // const onLayoutRootView = useCallback(async () => {
-  //   if (fontsLoaded) {
-  //     await SplashScreen.hideAsync();
-  //   }
-  // }, [fontsLoaded]);
-
-  // if (!fontsLoaded) {
-  //   return null;
-  // }
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   return (
     <View style={styles.container}>
@@ -85,14 +79,10 @@ const styles = StyleSheet.create({
   },
   h1: {
     color: "white",
-    // fontFamily: "Dancing-Script",
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: "bold",
     marginTop: 40,
     marginBottom: 20,
-  },
-  text: {
-    color: "white",
   },
   separator: {
     backgroundColor: "#777",
